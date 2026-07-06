@@ -28,12 +28,24 @@ while True:
     if y==n:
         print("Congrulations, You gussed it right")
         print("You gussed it in",c,"attempts")
-        with open("NumberGuess/game_history.txt","a") as file:
-            file.write(f"{name}: {c} attempts\n")
         break
     elif y>n:
         print("Your number is larger")
     elif y<n:
         print("Your number is smaller")
 
+with open("NumberGuess/game_history.txt","r") as file:
+    for line in file:
+        if ":" in line:
+            names, score = line.split(":")
+            attempts = int(score.split()[0])
+            scores[names.strip()] = attempts
+
+if name in scores and c < scores[name]:    
+    scores[name] = c
+elif name not in scores:
+    scores[name] = c
+with open("NumberGuess/game_history.txt","w") as file:
+    for names,attempts in scores.items():
+        file.write(f"{names}: {attempts} attempts\n")
     
