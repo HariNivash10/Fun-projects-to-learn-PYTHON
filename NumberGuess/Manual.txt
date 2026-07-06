@@ -1,0 +1,7 @@
+This is just a beginners game made by me
+In this game you have to guess a 4 digit number perfectly in between 1000-10000
+You can have as many chance you want
+But to have an high score you should do it in as low attempts as possible
+
+
+Thank You
